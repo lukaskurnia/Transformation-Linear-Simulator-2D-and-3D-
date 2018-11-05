@@ -5,4 +5,5 @@ import make
 
 os.system('cls')
 dimension = menu.mainmenu()
-make.shape(dimension)
+Mat = make.shape(dimension)
+print(Mat)
