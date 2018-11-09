@@ -6,4 +6,5 @@ import numpy as np
 
 os.system('cls')
 dimension = menu.mainmenu()
-Mat1 = make.shape(dimension)
+Mat = make.shape(dimension)
+menutransform.menu(dimension,Mat)
