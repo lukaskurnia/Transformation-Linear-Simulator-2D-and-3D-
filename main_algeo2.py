@@ -3,7 +3,7 @@ import os
 import menu
 import make
 
-os.system('cls')
+os.system('clear')
 dimension = menu.mainmenu()
 Mat = make.shape(dimension)
 print(Mat)
