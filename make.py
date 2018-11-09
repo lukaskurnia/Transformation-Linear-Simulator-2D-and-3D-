@@ -9,10 +9,10 @@ def twodimension():
     print('\nInput titik sudut bidang : ')
     for i in range(N):
         S = input()
-        Ss = S.split()
+        Ss = S.split(',')
         Mat[i][0] = (int(Ss[0]))
         Mat[i][1] = (int(Ss[1]))
-    return Mat
+    return Mat.transpose()
 
 def threedimension():
     "Menu 3 Dimensi"
@@ -21,11 +21,11 @@ def threedimension():
     print('Input titik sudut kubus : ')
     for i in range(8):
         S = input()
-        Ss = S.split()
+        Ss = S.split(',')
         Mat[i][0] = (int(Ss[0]))
         Mat[i][1] = (int(Ss[1]))
         Mat[i][2] = (int(Ss[2]))
-    return Mat
+    return Mat.transpose()
 
 def shape(dimension):
     "Ini prosedur membuat shape"

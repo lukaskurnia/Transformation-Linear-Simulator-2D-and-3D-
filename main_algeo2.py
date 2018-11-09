@@ -2,8 +2,8 @@
 import os
 import menu
 import make
+import numpy as np
 
 os.system('clear')
 dimension = menu.mainmenu()
-Mat = make.shape(dimension)
-print(Mat)
+Mat1 = make.shape(dimension)
