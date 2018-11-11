@@ -17,14 +17,14 @@ def mainmenu():
         choice = (int(input('>> ')))
         print()
         if choice == 1:
-            os.system('clear')
+            os.system('cls')
             return 2
         elif choice == 2:
-            os.system('clear')
+            os.system('cls')
             return 3
         elif choice == 3:
-            os.system('clear')
+            os.system('cls')
             exit()
         else:
-            os.system('clear')
+            os.system('cls')
             print('Pilihan tersebut tidak ada, mohon input ulang')

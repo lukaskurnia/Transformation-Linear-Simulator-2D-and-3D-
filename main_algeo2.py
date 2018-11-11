@@ -2,9 +2,14 @@
 import os
 import menu
 import make
+import menutransform as mt
 import numpy as np
 
-os.system('clear')
+from OpenGL.GL import *
+from OpenGL.GLU import *
+from OpenGL.GLUT import *
+
+os.system('cls')
 dimension = menu.mainmenu()
 Mat = make.shape(dimension)
-menutransform.menu(dimension,Mat)
+mt.menu(dimension,Mat)
