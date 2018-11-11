@@ -3,13 +3,11 @@ import os
 import menu
 import make
 import menutransform as mt
+import print as pt
 import numpy as np
-
-from OpenGL.GL import *
-from OpenGL.GLU import *
-from OpenGL.GLUT import *
 
 os.system('cls')
 dimension = menu.mainmenu()
 Mat = make.shape(dimension)
+pt.Print(np.transpose(Mat))
 mt.menu(dimension,Mat)
