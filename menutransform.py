@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import print as pt
 import transformasi as tr
 # Transform
 # N.B : Fungsi yang memiliki parameter berbeda untuk ruang 2D dan 3D
@@ -19,7 +20,12 @@ def menu(dimension,Mat):
         if S[0] == 'translate':
             dx = (int(S[1]))
             dy = (int(S[2]))
-            print(S)
+            MatTemp = tr.translate2D(dimension,Mat,dx,dy)
+            dxinit = 0.01*dx
+            dyinit = 0.01*dy
+            while (not(np.all(Mat == MatTemp))):
+                Mat = tr.translate2D(dimension,Mat,dxinit,dyinit)
+                pt.Print(np.transpose(Mat))
         elif S[0] == 'dilate':
             k = (int(S[1]))
             print(S)
