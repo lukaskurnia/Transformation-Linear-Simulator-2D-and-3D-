@@ -12,6 +12,7 @@ def translate2D(dimension,Mat,dx,dy):
     "Ini prosedur rotation utuk 2 dimensi"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,1)
+    Mat3 = np.zeros(dimension,dimension)
     Mat2[0][0] = dx
     Mat2[1][0] = dy
 
@@ -25,6 +26,7 @@ def translate3D(dimension,Mat,dx,dy,dz):
     "Ini prosedur rotation untuk 3 dimensi"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,1)
+    Mat3 = np.zeros(dimension,dimension)
     Mat2[0][0] = dx
     Mat2[1][0] = dy
     Mat2[2][0] = dz
@@ -38,6 +40,7 @@ def dilate(dimension,Mat,k):
     "Ini prosedure dilate"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     if(dimension==2): #matriks transformasi untuk dimensi 2
         Mat2[0][0] = k
         Mat2[0][1] = 0
@@ -64,20 +67,39 @@ def rotate2D(dimension,Mat,sudut,a,b):
     "Ini prosedur rotation"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    MatA = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
+    MatB = np.zeros(dimension,dimension)
+    temp = np.zeros(dimension,1)
+    temp[0][0] = a
+    temp[1][0] = b
     Mat2[0][0] = np.cos(sudut)
     Mat2[0][1] = -np.sin(sudut)
     Mat2[1][0] = np.sin(sudut)
     Mat2[1][1] = np.cos(sudut)
 
-    Mat3 = np.dot(Mat2,Mat)
+    MatA = np.substract(Mat,temp)
+    MatB = np.dot(Mat2,MatA)
+    Mat3 = np.add(MatB,temp)
+
     return Mat3
 
 def rotate3D(dimension,Mat,sudut,a,b,c):
 # Melakukan rotasi objek secara berlawanan arah arum jam sebesar
-# sudut terhadap titik a dan b untuk 3 dimensi
+# sudut terhadap vektor normal a, b, dan c untuk 3 dimensi
     "Ini prosedur rotation"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
+    Mat2[0][0] = a*a*(1-np.cos(sudut)) + np.cos(sudut)
+    Mat2[0][1] = a*b*(1-np.cos(sudut)) - c*(np.sin(sudut))
+    Mat2[0][2] = a*c*(1-np.cos(sudut)) + b*(np.sin(sudut))
+    Mat2[1][0] = a*b*(1-np.cos(sudut)) + c*(np.sin(sudut))
+    Mat2[1][1] = b*b*(1-np.cos(sudut)) + np.cos(sudut)
+    Mat2[1][2] = b*c*(1-np.cos(sudut)) - a*(np.sin(sudut))
+    Mat2[2][0] = a*c*(1-np.cos(sudut)) - b*(np.sin(sudut))
+    Mat2[2][0] = b*c*(1-np.cos(sudut)) + a*(np.sin(sudut))
+    Mat2[2][0] = c*c*(1-np.cos(sudut)) + np.cos(sudut)
 
     Mat3 = np.dot(Mat2,Mat)
     return Mat3
@@ -89,10 +111,11 @@ def reflect(dimension,Mat,parameter):
     "Ini prosedure reflect"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     if(dimesion ==2):
         if(parameter=='(a,b)'):
             MatA = np.zeros(dimension,dimension)
-            MatB
+            MatB = np.zeros(dimension,dimension)
             MatC = no,zeros(dimension,1)
             MatD = no,zeros(dimension,1)
             #inisiasi matriks transformasi pertama
@@ -149,6 +172,7 @@ def shear(dimension,Mat,parameter,k):
     "Ini prosedur shear"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     if(dimension==2):
         if(parameter=='x'):
             Mat2[0][0] = 1
@@ -160,6 +184,8 @@ def shear(dimension,Mat,parameter,k):
             Mat2[0][1] = 0
             Mat2[1][0] = k
             Mat2[1][1] = 1
+    # elif(dimension==3):
+
 
     Mat3 = np.dot(Mat2,Mat)
     return Mat3
@@ -171,6 +197,7 @@ def stretch(dimension):
     "Ini prosedur sretch"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     if(dimension==2):
         if(parameter=='x'): #jika parameter berupa x (terhadap sumbu x)
             Mat2[0][0] = k
@@ -182,6 +209,37 @@ def stretch(dimension):
             Mat2[0][1] = 0
             Mat2[1][0] = 0
             Mat2[1][1] = k
+    elif(dimension==3):
+        if(parameter=='x'): #jika paremeter berupa x (terhadap sumbu x)
+            Mat2[0][0] = k
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 1
+        elif(paremeter=='y'): #jika paremeter berupa y (terhadap sumbu y)
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = k
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 1
+        elif(paremeter=='z'): #jika parameter berupa z (terhadap sumbu z)
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = k
 
     Mat3 = np.dot(Mat2,Mat)
     return Mat3
@@ -194,12 +252,13 @@ def custom2D(dimension,Mat,a,b,c,d):
     "Ini prosedur custom"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     Mat2[0][0] = (a)
     Mat2[0][1] = (b)
     Mat2[1][0] = (c)
     Mat2[1][1] = (d)
 
-    Mat3 = np.dot(Mat2,Mat2)
+    Mat3 = np.dot(Mat2,Mat)
     return Mat3
 
 def custom3D(dimension,Mat,a,b,c,d,e,f,g,h,i):
@@ -209,6 +268,7 @@ def custom3D(dimension,Mat,a,b,c,d,e,f,g,h,i):
     "Ini prosedur custom"
     #inisiasi matriks transformasi
     Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     Mat2[0][0] = (a)
     Mat2[0][1] = (b)
     Mat2[0][2] = (c)
