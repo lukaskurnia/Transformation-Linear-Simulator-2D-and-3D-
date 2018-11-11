@@ -69,6 +69,7 @@ def Print(Mat):
     gluPerspective(90, 1, 0.1, 500.0)
     glTranslatef(0.0,0.0, -500.0)
 
+
     # while True:
     #     for event in pygame.event.get():
     #         if event.type == pygame.QUIT:
