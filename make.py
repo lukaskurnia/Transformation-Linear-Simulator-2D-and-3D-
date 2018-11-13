@@ -1,15 +1,6 @@
 import numpy as np
 # Make
 
-def isInt(x):
-    i = 0
-    try:
-        i = int(x)
-        integer=True
-    except:
-        integer = False
-    return integer
-
 def isNValid2D(x):
     i = 0
     try:
