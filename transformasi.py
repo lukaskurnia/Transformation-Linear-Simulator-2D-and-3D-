@@ -184,7 +184,7 @@ def reflect(dimension,Mat,parameter):
             Mat2[2][0] = 0
             Mat2[2][0] = 0
             Mat2[2][0] = -1
-        elif(parameter='y'): #jika parameter adalah y
+        elif(parameter=='y'): #jika parameter adalah y
         #refelction benda 3 dimensi terhadap garis sumbu y
             Mat2[0][0] = -1
             Mat2[0][1] = 0
@@ -195,7 +195,7 @@ def reflect(dimension,Mat,parameter):
             Mat2[2][0] = 0
             Mat2[2][0] = 0
             Mat2[2][0] = -1
-        elif(parameter='z'): #jika parameter adalah z
+        elif(parameter=='z'): #jika parameter adalah z
         #refelction benda 3 dimensi terhadap garis sumbu z
             Mat2[0][0] = -1
             Mat2[0][1] = 0
