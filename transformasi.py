@@ -145,7 +145,7 @@ def reflect(dimension,Mat,parameter):
         else: #(parameter=='(a,b)')
         #refelction benda 2 dimensi terhadap titik a,b
             temp = parameter.split('(')
-            temp = parameter.split('(')
+            temp = parameter.split(')')
             temp = parameter.split(',')
             MatA = np.zeros((dimension,dimension))
             MatB = np.zeros((dimension,dimension))
