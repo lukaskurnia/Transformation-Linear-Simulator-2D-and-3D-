@@ -11,8 +11,8 @@ def translate2D(dimension,Mat,dx,dy):
 # dan menggeser nilai y sebesar dy untuk 2 dimensi
     "Ini prosedur rotation utuk 2 dimensi"
     #inisiasi matriks transformasi
-    Mat2 = np.zeros((dimension,1))
-    Mat3 = np.zeros((dimension,dimension))
+    Mat2 = np.zeros(dimension,1)
+    Mat3 = np.zeros(dimension,dimension)
     Mat2[0][0] = dx
     Mat2[1][0] = dy
 
@@ -39,8 +39,8 @@ def dilate(dimension,Mat,k):
 # Melakukan dilatasi objek dengan faktor scaling k
     "Ini prosedure dilate"
     #inisiasi matriks transformasi
-    Mat2 = np.zeros((dimension,dimension))
-    Mat3 = np.zeros((dimension,dimension))
+    Mat2 = np.zeros(dimension,dimension)
+    Mat3 = np.zeros(dimension,dimension)
     if(dimension==2): #matriks transformasi untuk dimensi 2
         Mat2[0][0] = k
         Mat2[0][1] = 0
@@ -138,7 +138,7 @@ def reflect(dimension,Mat,parameter):
             temp = np.add(np.dot(MatA,Mat),MatC)
             Mat3 = np.add(np.dot(MatB,temp),MatD)
 
-        else:
+        else
             if (parameter=='x'):
                 Mat2[0][0] = 1
                 Mat2[0][1] = 0
