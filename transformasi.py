@@ -298,7 +298,7 @@ def shear(dimension,Mat,parameter,k):
     return Mat3
 
 #FUNGSI STRETCH MATRIKS
-def stretch(dimension):
+def stretch(dimension,Mat,parameter,k):
 # Melakukan operasi scretch pada objek. Nilai param dapat berupa x
 # (terhadap sumbu x) atau y (terhadap sumbu y). Nilai k adalah faktor shear
     "Ini prosedur sretch"
