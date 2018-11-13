@@ -139,7 +139,7 @@ def reflect(dimension,Mat,parameter):
             Mat3 = np.dot(Mat2,Mat)
         else: #(parameter=='(a,b)')
             temp = parameter.split('(')
-            temp = parameter.split('(')
+            temp = parameter.split(')')
             temp = parameter.split(',')
             MatA = np.zeros((dimension,dimension))
             MatB = np.zeros((dimension,dimension))
