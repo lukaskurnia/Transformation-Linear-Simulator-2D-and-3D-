@@ -71,6 +71,7 @@ def rotate2D(dimension,Mat,sudut,a,b):
     Mat3 = np.zeros((dimension,dimension))
     MatB = np.zeros((dimension,dimension))
     temp = np.zeros((dimension,1))
+
     temp[0][0] = a
     temp[1][0] = b
     Mat2[0][0] = np.cos(sudut)
@@ -145,6 +146,7 @@ def reflect(dimension,Mat,parameter):
             MatB = np.zeros((dimension,dimension))
             MatC = no,zeros((dimension,1))
             MatD = no,zeros((dimension,1))
+
             #inisiasi matriks transformasi pertama
             MatA[0][0] = -1
             MatA[0][1] = 0
