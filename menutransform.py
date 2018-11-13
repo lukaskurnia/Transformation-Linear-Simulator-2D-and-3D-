@@ -27,13 +27,25 @@ def menu(dimension,Mat):
                 Mat = tr.translate2D(dimension,Mat,dxinit,dyinit)
                 pt.Print(np.transpose(Mat))
         elif S[0] == 'dilate':
-            k = (int(S[1]))
-            print(S)
+            k = (float(S[1]))
+            MatInit = Mat
+            if (k < 1):
+                kinit = 1 - 0.01
+                while (kinit >= k):
+                    Mat = tr.dilate(dimension,MatInit,kinit)
+                    kinit = kinit - 0.01
+                    pt.Print(np.transpose(Mat))
+            if (k >= 1):
+                kinit = 1 + 0.1
+                while (kinit <= k):
+                    Mat = tr.dilate(dimension,MatInit,kinit)
+                    kinit = kinit + 0.1
+                    pt.Print(np.transpose(Mat))
         elif S[0] == 'rotate':
             sudut = (float(S[1]))
             a = (int(S[2]))
             b = (int(S[3]))
-            print(S)
+            Mat = tr.rotate(dimension,Mat,sudut,a,b)
         elif S[0] == 'reflect':
             param = S[1]
             print(S)
@@ -81,7 +93,7 @@ def menu(dimension,Mat):
                     print(S[i])
         elif S[0] == 'reset':
             Mat = Matinit
-            print(Mat)
+            pt.Print(np.transpose(Mat))
         elif S[0] == 'exit':
             print('\nArigatou Gozaimasu ^_^')
         else:

@@ -39,8 +39,8 @@ def dilate(dimension,Mat,k):
 # Melakukan dilatasi objek dengan faktor scaling k
     "Ini prosedure dilate"
     #inisiasi matriks transformasi
-    Mat2 = np.zeros(dimension,dimension)
-    Mat3 = np.zeros(dimension,dimension)
+    Mat2 = np.zeros((dimension,dimension))
+    Mat3 = np.zeros((dimension,dimension))
     if(dimension==2): #matriks transformasi untuk dimensi 2
         Mat2[0][0] = k
         Mat2[0][1] = 0
