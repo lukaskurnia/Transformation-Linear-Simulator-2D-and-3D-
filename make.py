@@ -6,21 +6,59 @@ def isNValid2D(x):
     try:
         i = int(x)
         if(i>=3):
-            integer=True
+            bool = True
         else:
-            integer=False
+            bool = False
     except:
-        integer = False
-    return integer
+        bool = False
+    return bool
 
-def isTitikValid(x):
+def isTitikValid2D(x):
     i = 0
-    val = False
-    while(i<len(x) and val==False):
+    count = 0
+    while(i<len(x)):
         if(x[i]==','):
+            count = count + 1
+        i = i+1
+
+    if(count==1):
+        a = 0
+        b = 0
+        try:
+            temp = x.split(',')
+            a = float(temp[0])
+            b = float(temp[1])
             val = True
-        else:
-            i = i+1
+        except:
+            val = False
+    else:
+        val = False
+
+    return val
+
+def isTitikValid3D(x):
+    i = 0
+    count = 0
+    while(i<len(x)):
+        if(x[i]==','):
+            count = count + 1
+        i = i+1
+
+    if(count==1):
+        a = 0
+        b = 0
+        c = 0
+        try:
+            temp = x.split(',')
+            a = float(temp[0])
+            b = float(temp[1])
+            c = float(temp[2])
+            val = True
+        except:
+            val = False
+    else:
+        val = False
+
     return val
 
 def twodimension():
@@ -38,12 +76,12 @@ def twodimension():
     for i in range(N):
         print('Input titik ke ', i+1)
         S = input()
-        while (isTitikValid(S)==False):
+        while (isTitikValid2D(S)==False):
             print('Input titik ke ', i+1)
             S = input()
         Ss = S.split(',')
-        Mat[i][0] = (int(Ss[0]))
-        Mat[i][1] = (int(Ss[1]))
+        Mat[i][0] = (float(Ss[0]))
+        Mat[i][1] = (float(Ss[1]))
     return Mat.transpose()
 
 def threedimension():
@@ -52,11 +90,15 @@ def threedimension():
     print('Bidang 3 dimensi yg digunakan adalah kubus')
     print('Input titik sudut kubus : ')
     for i in range(8):
+        print('Input titik ke ', i+1)
         S = input()
+        while (isTitikValid3D(S)==False):
+            print('Input titik ke ', i+1)
+            S = input()
         Ss = S.split(',')
-        Mat[i][0] = (int(Ss[0]))
-        Mat[i][1] = (int(Ss[1]))
-        Mat[i][2] = (int(Ss[2]))
+        Mat[i][0] = (float(Ss[0]))
+        Mat[i][1] = (float(Ss[1]))
+        Mat[i][2] = (float(Ss[2]))
     return Mat.transpose()
 
 def shape(dimension):
