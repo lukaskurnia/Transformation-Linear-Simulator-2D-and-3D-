@@ -25,7 +25,7 @@ def translate3D(dimension,Mat,dx,dy,dz):
 # untuk 3 dimensi
     "Ini prosedur rotation untuk 3 dimensi"
     #inisiasi matriks transformasi
-    Mat2 = np.zeros(dimension,1)
+    Mat2 = np.zeros((dimension,1))
     Mat3 = np.zeros((dimension,dimension))
     Mat2[0][0] = dx
     Mat2[1][0] = dy
@@ -70,7 +70,8 @@ def rotate2D(dimension,Mat,sudut,a,b):
     MatA = np.zeros((dimension,dimension))
     Mat3 = np.zeros((dimension,dimension))
     MatB = np.zeros((dimension,dimension))
-    temp = np.zeros(dimension,1)
+    temp = np.zeros((dimension,1))
+
     temp[0][0] = a
     temp[1][0] = b
     Mat2[0][0] = np.cos(sudut)
@@ -113,11 +114,39 @@ def reflect(dimension,Mat,parameter):
     Mat2 = np.zeros((dimension,dimension))
     Mat3 = np.zeros((dimension,dimension))
     if(dimesion ==2):
-        if(parameter=='(a,b)'):
+        if (parameter=='x'): #jika parameter adalah x
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = -1
+            Mat3 = np.dot(Mat2,Mat)
+        elif(parameter=='y'): #jika parameter adalah y
+            Mat2[0][0] = -1
+            Mat2[0][1] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat3 = np.dot(Mat2,Mat)
+        elif(parameter=='y=x'): #jika parameter adalah y=x
+            Mat2[0][0] = 0
+            Mat2[0][1] = 1
+            Mat2[1][0] = 1
+            Mat2[1][1] = 0
+            Mat3 = np.dot(Mat2,Mat)
+        elif(parameter=='y=-x'): #jika parameter adalah y=-x
+            Mat2[0][0] = 0
+            Mat2[0][1] = -1
+            Mat2[1][0] = -1
+            Mat2[1][1] = 0
+            Mat3 = np.dot(Mat2,Mat)
+        else: #(parameter=='(a,b)')
+            temp = parameter.split('(')
+            temp = parameter.split('(')
+            temp = parameter.split(',')
             MatA = np.zeros((dimension,dimension))
             MatB = np.zeros((dimension,dimension))
-            MatC = no,zeros(dimension,1)
-            MatD = no,zeros(dimension,1)
+            MatC = no,zeros((dimension,1))
+            MatD = no,zeros((dimension,1))
+
             #inisiasi matriks transformasi pertama
             MatA[0][0] = -1
             MatA[0][1] = 0
@@ -129,39 +158,47 @@ def reflect(dimension,Mat,parameter):
             MatB[1][0] = 0
             MatB[1][1] = -1
 
-            MatC[0][0] = 2*a
+            MatC[0][0] = 2*temp[0]
             MatC[1][0] = 0
 
             MatD[0][0] = 0
-            MatD[1][0] = 2*b
+            MatD[1][0] = 2*temp[1]
 
             temp = np.add(np.dot(MatA,Mat),MatC)
             Mat3 = np.add(np.dot(MatB,temp),MatD)
 
-        else:
-            if (parameter=='x'):
-                Mat2[0][0] = 1
-                Mat2[0][1] = 0
-                Mat2[1][0] = 0
-                Mat2[1][1] = -1
-            elif(parameter=='y'):
-                Mat2[0][0] = -1
-                Mat2[0][1] = 0
-                Mat2[1][0] = 0
-                Mat2[1][1] = 1
-            elif(parameter=='y=x'):
-                Mat2[0][0] = 0
-                Mat2[0][1] = 1
-                Mat2[1][0] = 1
-                Mat2[1][1] = 0
-            elif(parameter=='y=-x'):
-                Mat2[0][0] = 0
-                Mat2[0][1] = -1
-                Mat2[1][0] = -1
-                Mat2[1][1] = 0
-            Mat3 = np.dot(Mat2,Mat)
-
-    # elif(dimension==3):
+    elif(dimension==3):
+        if(parameter=='xy'): #jika parameter adalah xy
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = -1
+        elif(parameter=='yz'): #jika parameter adalah yz
+            Mat2[0][0] = -1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 1
+        elif(parameter=='zx'): #jika parameter adalah zx
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = -1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 1
+        Mat3 = np.dot(Mat2,Mat)
 
     return Mat3
 
