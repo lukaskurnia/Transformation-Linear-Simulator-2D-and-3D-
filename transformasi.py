@@ -113,32 +113,37 @@ def reflect(dimension,Mat,parameter):
     #inisiasi matriks transformasi
     Mat2 = np.zeros((dimension,dimension))
     Mat3 = np.zeros((dimension,dimension))
-    if(dimesion ==2):
+    if(dimesion==2):
         if (parameter=='x'): #jika parameter adalah x
+        #refelction benda 2 dimensi terhadap garis sumbu x
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[1][0] = 0
             Mat2[1][1] = -1
             Mat3 = np.dot(Mat2,Mat)
         elif(parameter=='y'): #jika parameter adalah y
+        #refelction benda 2 dimensi terhadap garis sumbu y
             Mat2[0][0] = -1
             Mat2[0][1] = 0
             Mat2[1][0] = 0
             Mat2[1][1] = 1
             Mat3 = np.dot(Mat2,Mat)
         elif(parameter=='y=x'): #jika parameter adalah y=x
+        #refelction benda 2 dimensi terhadap garis y=x
             Mat2[0][0] = 0
             Mat2[0][1] = 1
             Mat2[1][0] = 1
             Mat2[1][1] = 0
             Mat3 = np.dot(Mat2,Mat)
         elif(parameter=='y=-x'): #jika parameter adalah y=-x
+        #refelction benda 2 dimensi terhadap garis sumbu y=-x
             Mat2[0][0] = 0
             Mat2[0][1] = -1
             Mat2[1][0] = -1
             Mat2[1][1] = 0
             Mat3 = np.dot(Mat2,Mat)
         else: #(parameter=='(a,b)')
+        #refelction benda 2 dimensi terhadap titik a,b
             temp = parameter.split('(')
             temp = parameter.split('(')
             temp = parameter.split(',')
@@ -168,7 +173,41 @@ def reflect(dimension,Mat,parameter):
             Mat3 = np.add(np.dot(MatB,temp),MatD)
 
     elif(dimension==3):
-        if(parameter=='xy'): #jika parameter adalah xy
+        if(parameter=='x'): #jika parameter adalah x
+        #refelction benda 3 dimensi terhadap garis sumbu x
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = -1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = -1
+        elif(parameter='y'): #jika parameter adalah y
+        #refelction benda 3 dimensi terhadap garis sumbu y
+            Mat2[0][0] = -1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = -1
+        elif(parameter='z'): #jika parameter adalah z
+        #refelction benda 3 dimensi terhadap garis sumbu z
+            Mat2[0][0] = -1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = -1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 0
+            Mat2[2][0] = 1
+        elif(parameter=='xy'): #jika parameter adalah xy
+        #refelction benda 3 dimensi terhadap bidang xy
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
@@ -179,6 +218,7 @@ def reflect(dimension,Mat,parameter):
             Mat2[2][0] = 0
             Mat2[2][0] = -1
         elif(parameter=='yz'): #jika parameter adalah yz
+        #refelction benda 3 dimensi terhadap bidag yz
             Mat2[0][0] = -1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
@@ -189,6 +229,7 @@ def reflect(dimension,Mat,parameter):
             Mat2[2][0] = 0
             Mat2[2][0] = 1
         elif(parameter=='zx'): #jika parameter adalah zx
+        #refelction benda 3 dimensi terhadap bidang zx
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
