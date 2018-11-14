@@ -2,10 +2,12 @@ import numpy as np
 # Make
 
 def isNValid2D(x):
+    #fungsi boolean yang akan menghasilkan True, jika nilai input merupakan
+    #bilangan bulat yang lebih besar dari 2
     i = 0
     try:
         i = int(x)
-        if(i>=3):
+        if(i>2):
             bool = True
         else:
             bool = False
@@ -14,6 +16,7 @@ def isNValid2D(x):
     return bool
 
 def isTitikValid2D(x):
+    #fungsi boolean yang akan menghasilkan True, jika titik yang dimasukkan valid (x,y)
     i = 0
     count = 0
     while(i<len(x)):
@@ -37,6 +40,7 @@ def isTitikValid2D(x):
     return val
 
 def isTitikValid3D(x):
+    #fungsi boolean yang akan menghasilkan True, jika titik yang dimasukkan valid (x,y,z)
     i = 0
     count = 0
     while(i<len(x)):
@@ -66,7 +70,7 @@ def twodimension():
     print('Input banyaknya titik sudut bidang anda : ')
     x = input('>> ')
     while (isNValid2D(x)==False):
-        print('Input harus bilangan bulat minimal 3')
+        print('Input harus bilangan bulat lebih besar dari 2.')
         x = input('>> ')
     #input harus >= 3
 
@@ -77,6 +81,7 @@ def twodimension():
         print('Input titik ke ', i+1)
         S = input()
         while (isTitikValid2D(S)==False):
+            print('Format input yang dimasukkan harus (x,y).')
             print('Input titik ke ', i+1)
             S = input()
         Ss = S.split(',')
@@ -93,6 +98,7 @@ def threedimension():
         print('Input titik ke ', i+1)
         S = input()
         while (isTitikValid3D(S)==False):
+            print('Format input yang dimasukkan harus (x,y,z).')
             print('Input titik ke ', i+1)
             S = input()
         Ss = S.split(',')
