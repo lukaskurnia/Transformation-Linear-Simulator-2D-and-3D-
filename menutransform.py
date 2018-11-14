@@ -9,6 +9,16 @@ from math import pi
 # rotate
 # custom
 
+def isFloat(x):
+    i = 0
+    try:
+        i = float(x)
+        bool = True
+    except:
+        bool = False
+    return bool
+
+
 def menu(dimension,Mat):
     "Menu Transformasi"
     os.system('cls')

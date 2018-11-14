@@ -113,7 +113,7 @@ def reflect(dimension,Mat,parameter):
     #inisiasi matriks transformasi
     Mat2 = np.zeros((dimension,dimension))
     Mat3 = np.zeros((dimension,dimension))
-    if(dimesion==2):
+    if(dimension==2):
         if (parameter=='x'): #jika parameter adalah x
         #refelction benda 2 dimensi terhadap garis sumbu x
             Mat2[0][0] = 1
@@ -145,8 +145,8 @@ def reflect(dimension,Mat,parameter):
         else: #(parameter=='(a,b)')
         #refelction benda 2 dimensi terhadap titik a,b
             temp = parameter.split('(')
-            temp = parameter.split(')')
-            temp = parameter.split(',')
+            temp = temp.split(')')
+            temp = temp.split(',')
             MatA = np.zeros((dimension,dimension))
             MatB = np.zeros((dimension,dimension))
             MatC = no,zeros((dimension,1))

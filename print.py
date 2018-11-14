@@ -41,7 +41,7 @@ def Sumbu():
     glEnd()
 
 def Maker(Mat):
-    glBegin(GL_LINES)
+    glBegin(GL_POLYGON)
     vertices= Mat
 
     N= len(Mat)
@@ -60,14 +60,6 @@ def Maker(Mat):
     glEnd()
 
 def Print(Mat):
-    pygame.init()
-    display = (1000,1000)
-    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
-
-
-
-    gluPerspective(90, 1, 0.1, 500.0)
-    glTranslatef(0.0,0.0, -500.0)
 
 
     # while True:
@@ -76,7 +68,7 @@ def Print(Mat):
     #             pygame.quit()
     #             quit()
 
-    #glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
     Sumbu()
     Maker(Mat)
     pygame.display.flip()
