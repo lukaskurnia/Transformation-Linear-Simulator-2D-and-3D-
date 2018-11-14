@@ -5,6 +5,19 @@ import make
 import menutransform as mt
 import print as pt
 import numpy as np
+import pygame
+from OpenGL.GLUT import *
+from OpenGL.GL import*
+from OpenGL.GLU import*
+from pygame.locals import*
+
+pygame.init()
+
+display = (1000,1000)
+pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+gluPerspective(90, 1, 0.1, 500.0)
+glTranslatef(0.0,0.0, -500.0)
 
 os.system('cls')
 dimension = menu.mainmenu()
