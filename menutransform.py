@@ -145,6 +145,7 @@ def menu(dimension,Mat):
                     param = S[1]
                     k = (float(S[2]))
                     Mat = tr.stretch(dimension,Mat,param,k)
+                    pt.Print(np.transpose(Mat))
                 elif S[0] == 'custom':
                     if (dimension == 2):
                         a = (float(S[1]))
