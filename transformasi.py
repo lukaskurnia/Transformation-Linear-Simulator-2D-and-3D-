@@ -79,7 +79,7 @@ def rotate2D(dimension,Mat,sudut,a,b):
     Mat2[1][0] = np.sin(sudut)
     Mat2[1][1] = np.cos(sudut)
 
-    MatA = np.substract(Mat,temp)
+    MatA = np.subtract(Mat,temp)
     MatB = np.dot(Mat2,MatA)
     Mat3 = np.add(MatB,temp)
 
