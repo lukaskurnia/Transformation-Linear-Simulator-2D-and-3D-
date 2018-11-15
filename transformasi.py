@@ -145,12 +145,14 @@ def reflect(dimension,Mat,parameter):
         else: #(parameter=='(a,b)')
         #refelction benda 2 dimensi terhadap titik a,b
             temp = parameter.split('(')
-            temp = temp.split(')')
-            temp = temp.split(',')
+            temp = temp[1].split(')')
+            temp = temp[0].split(',')
+            absis = (int(temp[0]))
+            ordinat = (int(temp[1]))
             MatA = np.zeros((dimension,dimension))
             MatB = np.zeros((dimension,dimension))
-            MatC = no,zeros((dimension,1))
-            MatD = no,zeros((dimension,1))
+            MatC = np.zeros((dimension,1))
+            MatD = np.zeros((dimension,1))
 
             #inisiasi matriks transformasi pertama
             MatA[0][0] = -1
@@ -163,11 +165,11 @@ def reflect(dimension,Mat,parameter):
             MatB[1][0] = 0
             MatB[1][1] = -1
 
-            MatC[0][0] = 2*temp[0]
+            MatC[0][0] = 2*absis
             MatC[1][0] = 0
 
             MatD[0][0] = 0
-            MatD[1][0] = 2*temp[1]
+            MatD[1][0] = 2*ordinat
 
             temp = np.add(np.dot(MatA,Mat),MatC)
             Mat3 = np.add(np.dot(MatB,temp),MatD)
