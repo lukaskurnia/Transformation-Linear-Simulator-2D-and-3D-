@@ -48,7 +48,7 @@ def isTitikValid3D(x):
             count = count + 1
         i = i+1
 
-    if(count==1):
+    if(count==2):
         a = 0
         b = 0
         c = 0
