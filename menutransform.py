@@ -33,40 +33,41 @@ def menu(dimension,Mat):
                 dx = (float(S[1]))
                 dy = (float(S[2]))
                 Mat = tr.translate2D(dimension,Mat,dx,dy)
-                pt.Print(np.transpose(Mat))
+                pt.Print2D(np.transpose(Mat))
             elif (dimension == 3):
                 dx = (float(S[1]))
                 dy = (float(S[2]))
                 dz = (float(S[3]))
                 Mat = tr.translate3D(dimension,Mat,dx,dy,dz)
-                pt.Print(np.transpose(Mat))
+                pt.Print3D(np.transpose(Mat))
+
         elif S[0] == 'dilate':
             k = (float(S[1]))
             Mat = tr.dilate(dimension,Mat,k)
-            pt.Print(np.transpose(Mat))
+            pt.Print2D(np.transpose(Mat))
         elif S[0] == 'rotate':
             if (dimension == 2):
                 sudut = (float(S[1]))
                 a = (float(S[2]))
                 b = (float(S[3]))
                 Mat = tr.rotate2D(dimension,Mat,sudut/180*pi,a,b)
-                pt.Print(np.transpose(Mat))
+                pt.Print2D(np.transpose(Mat))
             elif (dimension == 3):
                 sudut = (float(S[1]))
                 a = (float(S[2]))
                 b = (float(S[3]))
                 c = (float(S[4]))
                 Mat = tr.rotate3D(dimension,Mat,sudut/180*pi,a,b,c)
-                pt.Print(np.transpose(Mat))
+                pt.Print3D(np.transpose(Mat))
         elif S[0] == 'reflect':
             param = S[1]
             Mat = tr.reflect(dimension,Mat,param)
-            pt.Print(np.transpose(Mat))
+            pt.Print2D(np.transpose(Mat))
         elif S[0] == 'shear':
             param = S[1]
             k = (float(S[2]))
             Mat = tr.shear(dimension,Mat,param,k)
-            pt.Print(np.transpose(Mat))
+            pt.Print2D(np.transpose(Mat))
         elif S[0] == 'stretch':
             param = S[1]
             k = (float(S[2]))
@@ -78,7 +79,7 @@ def menu(dimension,Mat):
                 c = (float(S[3]))
                 d = (float(S[4]))
                 Mat = tr.custom2D(dimension,Mat,a,b,c,d)
-                pt.Print(np.transpose(Mat))
+                pt.Print2D(np.transpose(Mat))
             elif (dimension == 3):
                 a = (float(S[1]))
                 b = (float(S[2]))
@@ -90,7 +91,7 @@ def menu(dimension,Mat):
                 h = (float(S[8]))
                 i = (float(S[9]))
                 Mat = tr.custom3D(dimension,Mat,a,b,c,d,e,f,g,h,i)
-                pt.Print(np.transpose(Mat))
+                pt.Print3D(np.transpose(Mat))
         elif S[0] == 'multiple':
             n = (int(S[1]))
             S = ["" for x in range(n)]
@@ -107,45 +108,44 @@ def menu(dimension,Mat):
                         dyinit = 0.01*dy
                         while (not(np.all(Mat == MatTemp))):
                             Mat = tr.translate2D(dimension,Mat,dxinit,dyinit)
-                            pt.Print(np.transpose(Mat))
+                            pt.Print2D(np.transpose(Mat))
                     elif (dimension == 3):
                         dx = (float(S[1]))
                         dy = (float(S[2]))
                         dz = (float(S[3]))
                         Mat = tr.translate3D(dimension,Mat,dx,dy,dz)
-                        pt.Print(np.transpose(Mat))
+                        pt.Print3D(np.transpose(Mat))
                 elif S[i][0] == 'dilate':
                     k = (float(S[1]))
                     Mat = tr.dilate(dimension,Mat,k)
-                    pt.Print(np.transpose(Mat))
+                    pt.Print2D(np.transpose(Mat))
                 elif S[i][0] == 'rotate':
                     if (dimension == 2):
                         sudut = (float(S[1]))
                         a = (float(S[2]))
                         b = (float(S[3]))
                         Mat = tr.rotate2D(dimension,Mat,sudut/180*pi,a,b)
-                        pt.Print(np.transpose(Mat))
+                        pt.Print2D(np.transpose(Mat))
                     elif (dimension == 3):
                         sudut = (float(S[1]))
                         a = (float(S[2]))
                         b = (float(S[3]))
                         c = (float(S[4]))
                         Mat = tr.rotate3D(dimension,Mat,sudut/180*pi,a,b,c)
-                        pt.Print(np.transpose(Mat))
+                        pt.Print3D(np.transpose(Mat))
                 elif S[0] == 'reflect':
                     param = S[1]
                     Mat = tr.reflect(dimension,Mat,param)
-                    pt.Print(np.transpose(Mat))
+                    pt.Print2D(np.transpose(Mat))
                 elif S[0] == 'shear':
                     param = S[1]
                     k = (float(S[2]))
                     Mat = tr.shear(dimension,Mat,param,k)
-                    pt.Print(np.transpose(Mat))
+                    pt.Print2D(np.transpose(Mat))
                 elif S[0] == 'stretch':
                     param = S[1]
                     k = (float(S[2]))
                     Mat = tr.stretch(dimension,Mat,param,k)
-                    pt.Print(np.transpose(Mat))
                 elif S[0] == 'custom':
                     if (dimension == 2):
                         a = (float(S[1]))
@@ -153,7 +153,7 @@ def menu(dimension,Mat):
                         c = (float(S[3]))
                         d = (float(S[4]))
                         Mat = tr.custom2D(dimension,Mat,a,b,c,d)
-                        pt.Print(np.transpose(Mat))
+                        pt.Print2D(np.transpose(Mat))
                     elif (dimension == 3):
                         a = (float(S[1]))
                         b = (float(S[2]))
@@ -165,10 +165,10 @@ def menu(dimension,Mat):
                         h = (float(S[8]))
                         i = (float(S[9]))
                         Mat = tr.custom3D(dimension,Mat,a,b,c,d,e,f,g,h,i)
-                        pt.Print(np.transpose(Mat))
+                        pt.Print3D(np.transpose(Mat))
         elif S[0] == 'reset':
             Mat = Matinit
-            pt.Print(np.transpose(Mat))
+            pt.Print2D(np.transpose(Mat))
         elif S[0] == 'exit':
             print('\nArigatou Gozaimasu ^_^')
         else:

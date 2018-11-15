@@ -16,13 +16,33 @@ from pygame.locals import*
 os.system('cls')
 dimension = menu.mainmenu()
 if (dimension != 0):
-    #tampilan pygame
-    pygame.init()
-    display = (1000,1000)
-    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
-    gluPerspective(90, 1, 0.1, 500.0)
-    glTranslatef(0.0,0.0, -500.0)
-
     Mat = make.shape(dimension)
-    pt.Print(np.transpose(Mat))
-    mt.menu(dimension,Mat)
+    # Mat =[
+    # 	[1, -1, -1],
+    # 	[1, 1, -1],
+    # 	[-1, 1, -1],
+    # 	[-1, -1, -1],
+    # 	[1, -1, 1],
+    # 	[1, 1, 1],
+    # 	[-1, -1, 1],
+    # 	[-1, 1, 1]
+    # 	]
+    # Mat =[
+    # 	[100, -100, -100],
+    # 	[100, 100, -100],
+    # 	[-100, 100, -100],
+    # 	[-100, -100, -100],
+    # 	[100, -100, 100],
+    # 	[100, 100, 100],
+    # 	[-100, -100, 100],
+    # 	[-100, 100, 100]
+    # 	]
+
+    if(dimension==2):
+        pt.displayWindow2D()
+        pt.Print2D(np.transpose(Mat))
+        mt.menu(dimension,Mat)
+    else: #dimension == 3D
+        pt.displayWindow3D()
+        pt.Print3D(np.transpose(Mat))
+        mt.menu(dimension,Mat)
