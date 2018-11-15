@@ -79,7 +79,7 @@ def rotate2D(dimension,Mat,sudut,a,b):
     Mat2[1][0] = np.sin(sudut)
     Mat2[1][1] = np.cos(sudut)
 
-    MatA = np.substract(Mat,temp)
+    MatA = np.subtract(Mat,temp)
     MatB = np.dot(Mat2,MatA)
     Mat3 = np.add(MatB,temp)
 
@@ -144,13 +144,11 @@ def reflect(dimension,Mat,parameter):
             Mat3 = np.dot(Mat2,Mat)
         else: #(parameter=='(a,b)')
         #refelction benda 2 dimensi terhadap titik a,b
-            temp = parameter.split('(')
-            temp = temp.split(')')
-            temp = temp.split(',')
+            temp = parameter.replace('(',' ').replace(')',' ').replace(',',' ').split()
             MatA = np.zeros((dimension,dimension))
             MatB = np.zeros((dimension,dimension))
-            MatC = no,zeros((dimension,1))
-            MatD = no,zeros((dimension,1))
+            MatC = np.zeros((dimension,1))
+            MatD = np.zeros((dimension,1))
 
             #inisiasi matriks transformasi pertama
             MatA[0][0] = -1
