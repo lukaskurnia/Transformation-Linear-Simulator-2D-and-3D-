@@ -25,7 +25,7 @@ if (dimension != 0):
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
     pt.Sumbu()
     pygame.display.flip()
-    
+
     Mat = make.shape(dimension)
     pt.Print(np.transpose(Mat))
     mt.menu(dimension,Mat)
