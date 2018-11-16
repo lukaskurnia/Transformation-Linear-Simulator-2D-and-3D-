@@ -93,18 +93,50 @@ def threedimension():
     "Menu 3 Dimensi"
     Mat = np.zeros( (8,3) )
     print('Bidang 3 dimensi yg digunakan adalah kubus')
-    print('Input titik sudut kubus : ')
-    for i in range(8):
-        print('Input titik ke ', i+1)
-        S = input()
-        while (isTitikValid3D(S)==False):
-            print('Format input yang dimasukkan harus (x,y,z).')
-            print('Input titik ke ', i+1)
-            S = input()
-        Ss = S.split(',')
-        Mat[i][0] = (float(Ss[0]))
-        Mat[i][1] = (float(Ss[1]))
-        Mat[i][2] = (float(Ss[2]))
+    # print('Input titik sudut kubus : ')
+    # for i in range(8):
+    #     print('Input titik ke ', i+1)
+    #     S = input()
+    #     while (isTitikValid3D(S)==False):
+    #         print('Format input yang dimasukkan harus (x,y,z).')
+    #         print('Input titik ke ', i+1)
+    #         S = input()
+    #     Ss = S.split(',')
+    #     Mat[i][0] = (float(Ss[0]))
+    #     Mat[i][1] = (float(Ss[1]))
+    #     Mat[i][2] = (float(Ss[2]))
+    Mat[0][0] = 100
+    Mat[0][1] = -100
+    Mat[0][2] = -100
+
+    Mat[1][0] = 100
+    Mat[1][1] = 100
+    Mat[1][2] = -100
+
+    Mat[2][0] = -100
+    Mat[2][1] = 100
+    Mat[2][2] = -100
+
+    Mat[3][0] = -100
+    Mat[3][1] = -100
+    Mat[3][2] = -100
+
+    Mat[4][0] = 100
+    Mat[4][1] = -100
+    Mat[4][2] = 100
+
+    Mat[5][0] = 100
+    Mat[5][1] = 100
+    Mat[5][2] = 100
+
+    Mat[6][0] = -100
+    Mat[6][1] = -100
+    Mat[6][2] = 100
+
+    Mat[7][0] = -100
+    Mat[7][1] = 100
+    Mat[7][2] = 100
+
     return Mat.transpose()
 
 def shape(dimension):
