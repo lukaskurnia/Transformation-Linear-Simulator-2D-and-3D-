@@ -65,6 +65,23 @@ def isTitikValid3D(x):
 
     return val
 
+def SearchTitik2D(x,n,Mat):
+    #fungsi boolean yang akan menghasilkan True, jika titik yang dimasukkan sudah ada sebelumnya
+    i = 0
+    bool = True
+    Ss = x.split(',')
+    while(i<=n and bool==True):
+        if((Mat[i][0] == (float(Ss[0]))) and (Mat[i][1] == (float(Ss[1])))):
+            bool = False
+        else:
+            i = i+1
+    return bool
+
+def CekTitik2D(n,Mat):
+    bool = True
+
+    return bool
+
 def twodimension():
     "Menu 2 Dimensi"
     print('Input banyaknya titik sudut bidang anda : ')
@@ -77,16 +94,37 @@ def twodimension():
     N = (int(x))
     Mat = np.zeros( (N,2) )
     print('\nInput titik sudut bidang : ')
-    for i in range(N):
+
+    #input titik pertama
+    i = 0
+    print('Input titik ke ', i+1)
+    S = input()
+    while (isTitikValid2D(S)==False):
+        print('Format input yang dimasukkan harus (x,y).')
         print('Input titik ke ', i+1)
         S = input()
-        while (isTitikValid2D(S)==False):
+    Ss = S.split(',')
+    Mat[i][0] = (float(Ss[0]))
+    Mat[i][1] = (float(Ss[1]))
+    print('')
+
+    #input titik ke 2 sampai ke N
+    i = 1
+    while (i<N):
+        print('Input titik ke ', i+1)
+        S = input()
+
+        if(isTitikValid2D(S)==True):
+            if(SearchTitik2D(S,i,Mat)==True):
+                Ss = S.split(',')
+                Mat[i][0] = (float(Ss[0]))
+                Mat[i][1] = (float(Ss[1]))
+                i = i+1
+            else:
+                print('Titik sudah pernah diinput.')
+        else:
             print('Format input yang dimasukkan harus (x,y).')
-            print('Input titik ke ', i+1)
-            S = input()
-        Ss = S.split(',')
-        Mat[i][0] = (float(Ss[0]))
-        Mat[i][1] = (float(Ss[1]))
+        print('')
     return Mat.transpose()
 
 def threedimension():
