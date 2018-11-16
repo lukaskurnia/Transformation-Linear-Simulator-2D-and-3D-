@@ -144,35 +144,39 @@ def reflect(dimension,Mat,parameter):
             Mat3 = np.dot(Mat2,Mat)
         else: #(parameter=='(a,b)')
         #refelction benda 2 dimensi terhadap titik a,b
-            temp = parameter.split('(')
-            temp = temp[1].split(')')
-            temp = temp[0].split(',')
-            absis = (int(temp[0]))
-            ordinat = (int(temp[1]))
-            MatA = np.zeros((dimension,dimension))
-            MatB = np.zeros((dimension,dimension))
-            MatC = np.zeros((dimension,1))
-            MatD = np.zeros((dimension,1))
+            try:
+                temp = parameter.split('(')
+                temp = temp[1].split(')')
+                temp = temp[0].split(',')
+                absis = (int(temp[0]))
+                ordinat = (int(temp[1]))
+                MatA = np.zeros((dimension,dimension))
+                MatB = np.zeros((dimension,dimension))
+                MatC = np.zeros((dimension,1))
+                MatD = np.zeros((dimension,1))
 
-            #inisiasi matriks transformasi pertama
-            MatA[0][0] = -1
-            MatA[0][1] = 0
-            MatA[1][0] = 0
-            MatA[1][1] = 1
+                #inisiasi matriks transformasi pertama
+                MatA[0][0] = -1
+                MatA[0][1] = 0
+                MatA[1][0] = 0
+                MatA[1][1] = 1
 
-            MatB[0][0] = 1
-            MatB[0][1] = 0
-            MatB[1][0] = 0
-            MatB[1][1] = -1
+                MatB[0][0] = 1
+                MatB[0][1] = 0
+                MatB[1][0] = 0
+                MatB[1][1] = -1
 
-            MatC[0][0] = 2*absis
-            MatC[1][0] = 0
+                MatC[0][0] = 2*absis
+                MatC[1][0] = 0
 
-            MatD[0][0] = 0
-            MatD[1][0] = 2*ordinat
+                MatD[0][0] = 0
+                MatD[1][0] = 2*ordinat
 
-            temp = np.add(np.dot(MatA,Mat),MatC)
-            Mat3 = np.add(np.dot(MatB,temp),MatD)
+                temp = np.add(np.dot(MatA,Mat),MatC)
+                Mat3 = np.add(np.dot(MatB,temp),MatD)
+            except:
+                print('Input tidak ada.')
+                Mat3=Mat
 
     elif(dimension==3):
         if(parameter=='x'): #jika parameter adalah x
