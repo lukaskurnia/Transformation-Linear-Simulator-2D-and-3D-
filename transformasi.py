@@ -241,6 +241,17 @@ def reflect(dimension,Mat,parameter):
             Mat2[2][0] = 0
             Mat2[2][1] = 0
             Mat2[2][2] = 1
+        else:
+            print('Input tidak ada.')
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][1] = 0
+            Mat2[2][2] = 1
         Mat3 = np.dot(Mat2,Mat)
 
     return Mat3
@@ -264,6 +275,13 @@ def shear(dimension,Mat,parameter,k):
             Mat2[0][1] = 0
             Mat2[1][0] = k
             Mat2[1][1] = 1
+        else:
+            print('Input tidak ada.')
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+
     elif(dimension==3):
         if(parameter=='x'): #jika parameter = x
             Mat2[0][0] = 1
@@ -295,6 +313,17 @@ def shear(dimension,Mat,parameter,k):
             Mat2[2][0] = 0
             Mat2[2][1] = 0
             Mat2[2][2] = 1
+        else:
+            print('Input tidak ada.')
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][1] = 0
+            Mat2[2][2] = 1
 
     Mat3 = np.dot(Mat2,Mat)
     return Mat3
@@ -318,6 +347,13 @@ def stretch(dimension,Mat,parameter,k):
             Mat2[0][1] = 0
             Mat2[1][0] = 0
             Mat2[1][1] = k
+        else:
+            print('Input tidak ada.')
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+
     elif(dimension==3):
         if(parameter=='x'): #jika paremeter berupa x (terhadap sumbu x)
             Mat2[0][0] = k
@@ -349,6 +385,17 @@ def stretch(dimension,Mat,parameter,k):
             Mat2[2][0] = 0
             Mat2[2][1] = 0
             Mat2[2][2] = k
+        else:
+            print('Input tidak ada.')
+            Mat2[0][0] = 1
+            Mat2[0][1] = 0
+            Mat2[0][2] = 0
+            Mat2[1][0] = 0
+            Mat2[1][1] = 1
+            Mat2[1][2] = 0
+            Mat2[2][0] = 0
+            Mat2[2][1] = 0
+            Mat2[2][2] = 1
 
     Mat3 = np.dot(Mat2,Mat)
     return Mat3

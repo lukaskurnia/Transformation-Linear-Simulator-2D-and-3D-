@@ -73,7 +73,7 @@ def menu(dimension,Mat):
         elif S[0] == 'dilate':
             #perintah fungsi dilatasi benda
             if(isParamValid(choice,1)):
-                if(isFloatS[1]):
+                if(isFloat(S[1])):
                     k = (float(S[1]))
                     Mat = tr.dilate(dimension,Mat,k)
                     pt.Print2D(np.transpose(Mat))
