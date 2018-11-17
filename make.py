@@ -1,6 +1,19 @@
 import numpy as np
 # Make
 
+def isPilValid(x):
+    #fungsi bernilai true jika x adalah bilangan integer
+    i = 0
+    try:
+        i = int(x)
+        if(i==1 or i==2):
+            bool = True
+        else:
+            bool = False
+    except:
+        bool = False
+    return bool
+
 def isNValid2D(x):
     #fungsi boolean yang akan menghasilkan True, jika nilai input merupakan
     #bilangan bulat yang lebih besar dari 2
@@ -190,53 +203,106 @@ def threedimension():
         "Menu 3 Dimensi"
         Mat = np.zeros( (8,3) )
         print('Bidang 3 dimensi yg digunakan adalah kubus')
-        print('Input titik sudut kubus : ')
 
-        #input titik pertama
-        i = 0
-        print('Input titik ke ', i+1)
-        S = input()
-        while (isTitikValid3D(S)==False):
-            print('Format input yang dimasukkan harus (x,y,z).')
-            print('Input titik ke ', i+1)
-            S = input()
-        Ss = S.split(',')
-        Mat[i][0] = (float(Ss[0]))
-        Mat[i][1] = (float(Ss[1]))
-        Mat[i][2] = (float(Ss[2]))
-        print('')
+        print('Pilihan input :')
+        print('1. Default')
+        print('2. Input titik manual')
+        pil = input('>> ')
 
-        Absis = Mat[i][0]
-        Ordinat = Mat[i][1]
-        TitikZ = Mat[i][2]
-
-        #input titik ke 2 sampai ke N
-        i = 1
-        while (i<8):
-            print('Input titik ke ', i+1)
-            S = input()
-
-            if(isTitikValid3D(S)==True):
-                if(SearchTitik3D(S,i,Mat)==True):
-                    Ss = S.split(',')
-                    Mat[i][0] = (float(Ss[0]))
-                    Mat[i][1] = (float(Ss[1]))
-                    Mat[i][2] = (float(Ss[2]))
-                    i = i+1
-                else:
-                    print('Titik sudah pernah diinput.')
-            else:
-                print('Format input yang dimasukkan harus (x,y,z).')
+        while(isPilValid(pil)==False):
             print('')
-        #semua titik sudah diinput dengan valid
+            print('Pilihan input :')
+            print('1. Default')
+            print('2. Input titik manual')
+            pil = input('>> ')
 
-        if(CekAllAbsis(Absis,8,Mat)==False and CekAllOrdinat(Ordinat,8,Mat)==False and CekAllTitikZ(TitikZ,8,Mat)==False):
+        pil = int(pil)
+
+        if(pil==1):
+            #input titik ke 1
+            Mat[0][0] = 100
+            Mat[0][1] = -100
+            Mat[0][2] = -100
+            #input titik ke 2
+            Mat[1][0] = 100
+            Mat[1][1] = 100
+            Mat[1][2] = -100
+            #input titik ke 3
+            Mat[2][0] = -100
+            Mat[2][1] = 100
+            Mat[2][2] = -100
+            #input titik ke 4
+            Mat[3][0] = -100
+            Mat[3][1] = -100
+            Mat[3][2] = -100
+            #input titik ke 5
+            Mat[4][0] = 100
+            Mat[4][1] = -100
+            Mat[4][2] = 100
+            #input titik ke 6
+            Mat[5][0] = 100
+            Mat[5][1] = 100
+            Mat[5][2] = 100
+            #input titik ke 7
+            Mat[6][0] = -100
+            Mat[6][1] = -100
+            Mat[6][2] = 100
+            #input titik ke 8
+            Mat[7][0] = -100
+            Mat[7][1] = 100
+            Mat[7][2] = 100
+
             status=True
-        else:
-            print('Titik yang diinput bukan bidang 3 dimensi.')
-            print('Ulangi input!')
-        print('')
-    #loop hingga input
+
+        elif(pil==2):
+
+            print('Input titik sudut kubus : ')
+            #input titik pertama
+            i = 0
+            print('Input titik ke ', i+1)
+            S = input()
+            while (isTitikValid3D(S)==False):
+                print('Format input yang dimasukkan harus (x,y,z).')
+                print('Input titik ke ', i+1)
+                S = input()
+            Ss = S.split(',')
+            Mat[i][0] = (float(Ss[0]))
+            Mat[i][1] = (float(Ss[1]))
+            Mat[i][2] = (float(Ss[2]))
+            print('')
+
+            Absis = Mat[i][0]
+            Ordinat = Mat[i][1]
+            TitikZ = Mat[i][2]
+
+            #input titik ke 2 sampai ke N
+            i = 1
+            while (i<8):
+                print('Input titik ke ', i+1)
+                S = input()
+
+                if(isTitikValid3D(S)==True):
+                    if(SearchTitik3D(S,i,Mat)==True):
+                        Ss = S.split(',')
+                        Mat[i][0] = (float(Ss[0]))
+                        Mat[i][1] = (float(Ss[1]))
+                        Mat[i][2] = (float(Ss[2]))
+                        i = i+1
+                    else:
+                        print('Titik sudah pernah diinput.')
+                else:
+                    print('Format input yang dimasukkan harus (x,y,z).')
+                print('')
+            #semua titik sudah diinput dengan valid
+
+            if(CekAllAbsis(Absis,8,Mat)==False and CekAllOrdinat(Ordinat,8,Mat)==False and CekAllTitikZ(TitikZ,8,Mat)==False):
+                status=True
+            else:
+                print('Titik yang diinput bukan bidang 3 dimensi.')
+                print('Ulangi input!')
+            print('')
+            #loop hingga input
+
     return Mat.transpose()
 
 def shape(dimension):

@@ -20,10 +20,10 @@ def isFloat(x):
     return bool
 
 def isInt(x):
-    #fungsi bernilai true jika x adalah bilangan real
+    #fungsi bernilai true jika x adalah bilangan integer
     i = 0
     try:
-        i = Int(x)
+        i = int(x)
         bool = True
     except:
         bool = False
@@ -366,7 +366,7 @@ def menu(dimension,Mat):
                     print('Input salah. Format input : multiple <n>')
             else:
                 print('Input salah. Format input : multiple <n>')
-                
+
         elif S[0] == 'reset':
             #perintah fungsi reset untuk mengembalikan benda ke posisi dan bentuk awal
             if(isParamValid(choice,0)):
