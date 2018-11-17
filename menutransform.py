@@ -119,7 +119,10 @@ def menu(dimension,Mat):
             if(isParamValid(choice,1)):
                 param = S[1]
                 Mat = tr.reflect(dimension,Mat,param)
-                pt.Print2D(np.transpose(Mat))
+                if(dimension==2):
+                    pt.Print2D(np.transpose(Mat))
+                elif(dimension==3):
+                    pt.Print3D(np.transpose(Mat))
             else:
                 print('Input salah. Format input : reflect <param>')
 
@@ -130,7 +133,10 @@ def menu(dimension,Mat):
                     param = S[1]
                     k = (float(S[2]))
                     Mat = tr.shear(dimension,Mat,param,k)
-                    pt.Print2D(np.transpose(Mat))
+                    if(dimension==2):
+                        pt.Print2D(np.transpose(Mat))
+                    elif(dimension==3):
+                        pt.Print3D(np.transpose(Mat))
                 else:
                     print('Input salah. Format input : shear <param> <k>')
             else:
@@ -143,6 +149,10 @@ def menu(dimension,Mat):
                     param = S[1]
                     k = (float(S[2]))
                     Mat = tr.stretch(dimension,Mat,param,k)
+                    if(dimension==2):
+                        pt.Print2D(np.transpose(Mat))
+                    elif(dimension==3):
+                        pt.Print3D(np.transpose(Mat))
                 else:
                     print('Input salah. Format input : stretch <param> <k>')
             else:
@@ -267,7 +277,10 @@ def menu(dimension,Mat):
                     if(isParamValid(choice,1)):
                         param = S[1]
                         Mat = tr.reflect(dimension,Mat,param)
-                        pt.Print2D(np.transpose(Mat))
+                        if(dimension==2):
+                            pt.Print2D(np.transpose(Mat))
+                        elif(dimension==3):
+                            pt.Print3D(np.transpose(Mat))
                     else:
                         print('Input salah. Format input : reflect <param>')
 
@@ -278,7 +291,10 @@ def menu(dimension,Mat):
                             param = S[1]
                             k = (float(S[2]))
                             Mat = tr.shear(dimension,Mat,param,k)
-                            pt.Print2D(np.transpose(Mat))
+                            if(dimension==2):
+                                pt.Print2D(np.transpose(Mat))
+                            elif(dimension==3):
+                                pt.Print3D(np.transpose(Mat))
                         else:
                             print('Input salah. Format input : shear <param> <k>')
                     else:
@@ -291,6 +307,10 @@ def menu(dimension,Mat):
                             param = S[1]
                             k = (float(S[2]))
                             Mat = tr.stretch(dimension,Mat,param,k)
+                            if(dimension==2):
+                                pt.Print2D(np.transpose(Mat))
+                            elif(dimension==3):
+                                pt.Print3D(np.transpose(Mat))
                         else:
                             print('Input salah. Format input : stretch <param> <k>')
                     else:
@@ -335,7 +355,10 @@ def menu(dimension,Mat):
             #perintah fungsi reset untuk mengembalikan benda ke posisi dan bentuk awal
             if(isParamValid(choice,0)):
                 Mat = Matinit
-                pt.Print2D(np.transpose(Mat))
+                if(dimension==2):
+                    pt.Print2D(np.transpose(Mat))
+                elif(dimension==3):
+                    pt.Print3D(np.transpose(Mat))
             else:
                 print('Input salah. Format input : reset')
 
