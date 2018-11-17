@@ -230,7 +230,7 @@ def threedimension():
             print('')
         #semua titik sudah diinput dengan valid
 
-        if(CekAllAbsis(Absis,8,Mat)==False and CekAllOrdinat(Ordinat,8,Mat)==False and CekAllTitikZ(TitikZ,8,Mat)):
+        if(CekAllAbsis(Absis,8,Mat)==False and CekAllOrdinat(Ordinat,8,Mat)==False and CekAllTitikZ(TitikZ,8,Mat)==False):
             status=True
         else:
             print('Titik yang diinput bukan bidang 3 dimensi.')
