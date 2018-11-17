@@ -439,5 +439,5 @@ def custom3D(dimension,Mat,a,b,c,d,e,f,g,h,i):
     Mat2[2][1] = (h)
     Mat2[2][2] = (i)
 
-    Mat3 = np.dot(Mat2,Mat2)
+    Mat3 = np.dot(Mat2,Mat)
     return Mat3

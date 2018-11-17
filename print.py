@@ -17,8 +17,9 @@ def displayWindow3D(): #Membuat layar pygame untuk 3 dimensi
     display = (1000,1000)
     pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
     gluPerspective(45, display[0]/display[1], 0.1, 1500.0)
-    glTranslatef(0.0,0.0, -1200.0)
-    gluLookAt(3.0, 3.0, 3.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0)
+    glTranslatef(0.0,0.0, -1300.0)
+    gluLookAt(2.0, 3.0, 5.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0)
+    glOrtho(-1.2, 1.2, -1.2, 1.2, -1.2, 1.2);
 
 def sumbuX(): #Sumbu X diberi warna HIJAU
     glBegin(GL_LINES)

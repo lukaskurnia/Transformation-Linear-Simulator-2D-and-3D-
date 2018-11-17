@@ -211,11 +211,12 @@ def menu(dimension,Mat):
                     S = ["" for x in range(n)]
                     for i in range(n):
                         choice = input('... ')
-                        S[i] = choice.split()
-                    for i in range(n):
+                        S = choice.split()
+                    # for i in range(n):
                         if S[0] == 'translate':
                             #perintah fungsi translasi benda
                             if (dimension == 2): #translasi benda 2 dimensi
+
                                 if(isParamValid(choice,2)):
                                     if(isFloat(S[1]) and isFloat(S[2])):
                                         dx = (float(S[1]))
@@ -243,7 +244,7 @@ def menu(dimension,Mat):
                         elif S[0] == 'dilate':
                             #perintah fungsi dilatasi benda
                             if(isParamValid(choice,1)):
-                                if(isFloatS[1]):
+                                if(isFloat(S[1])):
                                     k = (float(S[1]))
                                     Mat = tr.dilate(dimension,Mat,k)
                                     if(dimension==2):
