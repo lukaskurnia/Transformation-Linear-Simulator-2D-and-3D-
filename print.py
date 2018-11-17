@@ -16,7 +16,7 @@ def displayWindow3D(): #Membuat layar pygame untuk 3 dimensi
     pygame.init()
     display = (1000,1000)
     pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
-    gluPerspective(45, display[0]/display[1], 0.1, 1500.0)
+    gluPerspective(45, display[0]/display[1], 0.1, 2000.0)
     glTranslatef(0.0,0.0, -1300.0)
     gluLookAt(2.0, 3.0, 5.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0)
     glOrtho(-1.2, 1.2, -1.2, 1.2, -1.2, 1.2);
@@ -35,7 +35,7 @@ def sumbuY(): #Sumbu Y diberi warna MERAH
     glVertex3f(0,500,0)
     glEnd()
 
-def sumbuZ(): #Sumbu Z diberi warna BIRU
+def sumbuZ(): #Sumbu Z diberi warna BIRU, sumbu z positif masuk ke layar, sedangkan sumbu z negatif keluar layar
     glBegin(GL_LINES)
     glColor3f(0,0,1)
     glVertex3f(0,0,-500)

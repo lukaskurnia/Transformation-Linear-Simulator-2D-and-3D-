@@ -111,18 +111,27 @@ def menu(dimension,Mat):
                     print('Input salah. Format input : rotate <deg> <a> <b>')
 
             elif (dimension == 3): #rotasi benda 3 dimensi
-                if(isParamValid(choice,4)):
-                    if(isFloat(S[1]) and isFloat(S[2]) and isFloat(S[3]) and isFloat(S[4])):
+                if(isParamValid(choice,2)):
+                # if(isParamValid(choice,4)):
+                    # if(isFloat(S[1]) and isFloat(S[2]) and isFloat(S[3]) and isFloat(S[4])):
+                    if(isFloat(S[1])):
                         sudut = (float(S[1]))
-                        a = (float(S[2]))
-                        b = (float(S[3]))
-                        c = (float(S[4]))
-                        Mat = tr.rotate3D(dimension,Mat,sudut/180*pi,a,b,c)
+                        param = S[2]
+                        # sudut = (float(S[1]))
+                        # a = (float(S[2]))
+                        # b = (float(S[3]))
+                        # c = (float(S[4]))
+                        # Mat = tr.rotate3D(dimension,Mat,sudut/180*pi,a,b,c)
+
+                        #ENTAH KENAPA KALAU SUDUT NYA 90 JADI CLOCKWISE. JADI DIBERI MINUS di bagian sudut
+                        Mat = tr.rotate3D(dimension,Mat,-sudut/180*pi,param)
                         pt.Print3D(np.transpose(Mat))
                     else:
-                        print('Input salah. Format input : rotate <deg> <a> <b> <c>')
+                        print('Input salah. Format input : rotate <deg> <param>')
+                        # print('Input salah. Format input : rotate <deg> <a> <b> <c>')
                 else:
-                    print('Input salah. Format input : rotate <deg> <a> <b> <c>')
+                    print('Input salah. Format input : rotate <deg> <param>')
+                    # print('Input salah. Format input : rotate <deg> <a> <b> <c>')
 
         elif S[0] == 'reflect':
             #perintah fungsi refleksi benda
@@ -272,18 +281,27 @@ def menu(dimension,Mat):
                                     print('Input salah. Format input : rotate <deg> <a> <b>')
 
                             elif (dimension == 3): #rotasi benda 3 dimensi
-                                if(isParamValid(choice,4)):
-                                    if(isFloat(S[1]) and isFloat(S[2]) and isFloat(S[3]) and isFloat(S[4])):
+                                if(isParamValid(choice,2)):
+                                # if(isParamValid(choice,4)):
+                                    # if(isFloat(S[1]) and isFloat(S[2]) and isFloat(S[3]) and isFloat(S[4])):
+                                    if(isFloat(S[1])):
                                         sudut = (float(S[1]))
-                                        a = (float(S[2]))
-                                        b = (float(S[3]))
-                                        c = (float(S[4]))
-                                        Mat = tr.rotate3D(dimension,Mat,sudut/180*pi,a,b,c)
+                                        param = S[2]
+                                        # sudut = (float(S[1]))
+                                        # a = (float(S[2]))
+                                        # b = (float(S[3]))
+                                        # c = (float(S[4]))
+                                        # Mat = tr.rotate3D(dimension,Mat,sudut/180*pi,a,b,c)
+
+                                        #ENTAH KENAPA KALAU SUDUT NYA 90 JADI CLOCKWISE. JADI DIBERI MINUS di bagian sudut
+                                        Mat = tr.rotate3D(dimension,Mat,-sudut/180*pi,param)
                                         pt.Print3D(np.transpose(Mat))
                                     else:
-                                        print('Input salah. Format input : rotate <deg> <a> <b> <c>')
+                                        print('Input salah. Format input : rotate <deg> <param>')
+                                        # print('Input salah. Format input : rotate <deg> <a> <b> <c>')
                                 else:
-                                    print('Input salah. Format input : rotate <deg> <a> <b> <c>')
+                                    print('Input salah. Format input : rotate <deg> <param>')
+                                    # print('Input salah. Format input : rotate <deg> <a> <b> <c>')
 
                         elif S[0] == 'reflect':
                             #perintah fungsi refleksi benda

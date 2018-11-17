@@ -85,22 +85,57 @@ def rotate2D(dimension,Mat,sudut,a,b):
 
     return Mat3
 
-def rotate3D(dimension,Mat,sudut,a,b,c):
+def rotate3D(dimension,Mat,sudut,parameter):
+# def rotate3D(dimension,Mat,sudut,a,b,c):
 # Melakukan rotasi objek secara berlawanan arah arum jam sebesar
 # sudut terhadap vektor normal a, b, dan c untuk 3 dimensi
     "Ini prosedur rotation"
     #inisiasi matriks transformasi
     Mat2 = np.zeros((dimension,dimension))
     Mat3 = np.zeros((dimension,dimension))
-    Mat2[0][0] = a*a*(1-np.cos(sudut)) + np.cos(sudut)
-    Mat2[0][1] = a*b*(1-np.cos(sudut)) - c*(np.sin(sudut))
-    Mat2[0][2] = a*c*(1-np.cos(sudut)) + b*(np.sin(sudut))
-    Mat2[1][0] = a*b*(1-np.cos(sudut)) + c*(np.sin(sudut))
-    Mat2[1][1] = b*b*(1-np.cos(sudut)) + np.cos(sudut)
-    Mat2[1][2] = b*c*(1-np.cos(sudut)) - a*(np.sin(sudut))
-    Mat2[2][0] = a*c*(1-np.cos(sudut)) - b*(np.sin(sudut))
-    Mat2[2][1] = b*c*(1-np.cos(sudut)) + a*(np.sin(sudut))
-    Mat2[2][2] = c*c*(1-np.cos(sudut)) + np.cos(sudut)
+    # Mat2[0][0] = a*a*(1-np.cos(sudut)) + np.cos(sudut)
+    # Mat2[0][1] = a*b*(1-np.cos(sudut)) - c*(np.sin(sudut))
+    # Mat2[0][2] = a*c*(1-np.cos(sudut)) + b*(np.sin(sudut))
+    # Mat2[1][0] = a*b*(1-np.cos(sudut)) + c*(np.sin(sudut))
+    # Mat2[1][1] = b*b*(1-np.cos(sudut)) + np.cos(sudut)
+    # Mat2[1][2] = b*c*(1-np.cos(sudut)) - a*(np.sin(sudut))
+    # Mat2[2][0] = a*c*(1-np.cos(sudut)) - b*(np.sin(sudut))
+    # Mat2[2][1] = b*c*(1-np.cos(sudut)) + a*(np.sin(sudut))
+    # Mat2[2][2] = c*c*(1-np.cos(sudut)) + np.cos(sudut)
+
+    if(parameter=='x'): #jika parameter adalah x
+    #rotate benda 3 dimensi terhadap garis sumbu x
+        Mat2[0][0] = 1
+        Mat2[0][1] = 0
+        Mat2[0][2] = 0
+        Mat2[1][0] = 0
+        Mat2[1][1] = np.cos(sudut)
+        Mat2[1][2] = -np.sin(sudut)
+        Mat2[2][0] = 0
+        Mat2[2][1] = np.sin(sudut)
+        Mat2[2][2] = np.cos(sudut)
+    elif(parameter=='y'): #jika parameter adalah y
+    #rotate benda 3 dimensi terhadap garis sumbu y
+        Mat2[0][0] = np.cos(sudut)
+        Mat2[0][1] = 0
+        Mat2[0][2] = np.sin(sudut)
+        Mat2[1][0] = 0
+        Mat2[1][1] = 1
+        Mat2[1][2] = 0
+        Mat2[2][0] = -np.sin(sudut)
+        Mat2[2][1] = 0
+        Mat2[2][2] = np.cos(sudut)
+    elif(parameter=='z'): #jika parameter adalah z
+    #rotate benda 3 dimensi terhadap garis sumbu z
+        Mat2[0][0] = np.cos(sudut)
+        Mat2[0][1] = -np.sin(sudut)
+        Mat2[0][2] = 0
+        Mat2[1][0] = np.sin(sudut)
+        Mat2[1][1] = np.cos(sudut)
+        Mat2[1][2] = 0
+        Mat2[2][0] = 0
+        Mat2[2][1] = 0
+        Mat2[2][2] = 1
 
     Mat3 = np.dot(Mat2,Mat)
     return Mat3
@@ -180,7 +215,7 @@ def reflect(dimension,Mat,parameter):
 
     elif(dimension==3):
         if(parameter=='x'): #jika parameter adalah x
-        #refelction benda 3 dimensi terhadap garis sumbu x
+        #reflection benda 3 dimensi terhadap garis sumbu x
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
@@ -289,9 +324,9 @@ def shear(dimension,Mat,parameter,k):
     elif(dimension==3):
         if(parameter=='x'): #jika parameter = x
             Mat2[0][0] = 1
-            Mat2[0][1] = 0
-            Mat2[0][2] = 0
-            Mat2[1][0] = k
+            Mat2[0][1] = k
+            Mat2[0][2] = k
+            Mat2[1][0] = 0
             Mat2[1][1] = 1
             Mat2[1][2] = 0
             Mat2[2][0] = 0
@@ -301,21 +336,21 @@ def shear(dimension,Mat,parameter,k):
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
-            Mat2[1][0] = 0
+            Mat2[1][0] = k
             Mat2[1][1] = 1
-            Mat2[1][2] = 0
+            Mat2[1][2] = k
             Mat2[2][0] = 0
-            Mat2[2][1] = k
+            Mat2[2][1] = 0
             Mat2[2][2] = 1
         elif(parameter=='z'): #jika parameter = z
             Mat2[0][0] = 1
             Mat2[0][1] = 0
-            Mat2[0][2] = k
+            Mat2[0][2] = 0
             Mat2[1][0] = 0
             Mat2[1][1] = 1
             Mat2[1][2] = 0
-            Mat2[2][0] = 0
-            Mat2[2][1] = 0
+            Mat2[2][0] = k
+            Mat2[2][1] = k
             Mat2[2][2] = 1
         else:
             print('Input tidak ada.')
@@ -369,7 +404,7 @@ def stretch(dimension,Mat,parameter,k):
             Mat2[2][0] = 0
             Mat2[2][1] = 0
             Mat2[2][2] = 1
-        elif(paremeter=='y'): #jika paremeter berupa y (terhadap sumbu y)
+        elif(parameter=='y'): #jika paremeter berupa y (terhadap sumbu y)
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
@@ -379,7 +414,7 @@ def stretch(dimension,Mat,parameter,k):
             Mat2[2][0] = 0
             Mat2[2][1] = 0
             Mat2[2][2] = 1
-        elif(paremeter=='z'): #jika parameter berupa z (terhadap sumbu z)
+        elif(parameter=='z'): #jika parameter berupa z (terhadap sumbu z)
             Mat2[0][0] = 1
             Mat2[0][1] = 0
             Mat2[0][2] = 0
