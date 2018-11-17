@@ -76,7 +76,10 @@ def menu(dimension,Mat):
                 if(isFloat(S[1])):
                     k = (float(S[1]))
                     Mat = tr.dilate(dimension,Mat,k)
-                    pt.Print2D(np.transpose(Mat))
+                    if(dimension==2):
+                        pt.Print2D(np.transpose(Mat))
+                    elif(dimension==3):
+                        pt.Print3D(np.transpose(Mat))
                 else:
                     print('Input salah. Format input : dilate <k>')
             else:
@@ -221,7 +224,10 @@ def menu(dimension,Mat):
                         if(isFloatS[1]):
                             k = (float(S[1]))
                             Mat = tr.dilate(dimension,Mat,k)
-                            pt.Print2D(np.transpose(Mat))
+                            if(dimension==2):
+                                pt.Print2D(np.transpose(Mat))
+                            elif(dimension==3):
+                                pt.Print3D(np.transpose(Mat))
                         else:
                             print('Input salah. Format input : dilate <k>')
                     else:
