@@ -46,7 +46,7 @@ def isParamValid(x,n):
 
 def menu(dimension,Mat):
     "Menu Transformasi"
-    os.system('clear')
+    os.system('cls')
     Matinit = Mat
     print('Pilih transformasi yang diinginkan')
     choice = 'input'
@@ -220,7 +220,7 @@ def menu(dimension,Mat):
                                         dx = (float(S[1]))
                                         dy = (float(S[2]))
                                         Mat = tr.translate2D(dimension,Mat,dx,dy)
-                                        pt.Print2D(np.transpose(Mat))
+                                        # pt.Print2D(np.transpose(Mat))
                                     else:
                                         print('Input salah. Format input : translate <dx> <dy>')
                                 else:
@@ -233,7 +233,7 @@ def menu(dimension,Mat):
                                         dy = (float(S[2]))
                                         dz = (float(S[3]))
                                         Mat = tr.translate3D(dimension,Mat,dx,dy,dz)
-                                        pt.Print3D(np.transpose(Mat))
+                                        # pt.Print3D(np.transpose(Mat))
                                     else:
                                         print('Input salah. Format input : translate <dx> <dy> <dz>')
                                 else:
@@ -245,10 +245,10 @@ def menu(dimension,Mat):
                                 if(isFloat(S[1])):
                                     k = (float(S[1]))
                                     Mat = tr.dilate(dimension,Mat,k)
-                                    if(dimension==2):
-                                        pt.Print2D(np.transpose(Mat))
-                                    elif(dimension==3):
-                                        pt.Print3D(np.transpose(Mat))
+                                    # if(dimension==2):
+                                    #     pt.Print2D(np.transpose(Mat))
+                                    # elif(dimension==3):
+                                    #     pt.Print3D(np.transpose(Mat))
                                 else:
                                     print('Input salah. Format input : dilate <k>')
                             else:
@@ -263,7 +263,7 @@ def menu(dimension,Mat):
                                         a = (float(S[2]))
                                         b = (float(S[3]))
                                         Mat = tr.rotate2D(dimension,Mat,sudut/180*pi,a,b)
-                                        pt.Print2D(np.transpose(Mat))
+                                        # pt.Print2D(np.transpose(Mat))
                                     else:
                                         print('Input salah. Format input : rotate <deg> <a> <b>')
                                 else:
@@ -275,7 +275,7 @@ def menu(dimension,Mat):
                                         sudut = (float(S[1]))
                                         param = S[2]
                                         Mat = tr.rotate3D(dimension,Mat,-sudut/180*pi,param)
-                                        pt.Print3D(np.transpose(Mat))
+                                        # pt.Print3D(np.transpose(Mat))
                                     else:
                                         print('Input salah. Format input : rotate <deg> <param>')
                                 else:
@@ -286,10 +286,10 @@ def menu(dimension,Mat):
                             if(isParamValid(choice,1)):
                                 param = S[1]
                                 Mat = tr.reflect(dimension,Mat,param)
-                                if(dimension==2):
-                                    pt.Print2D(np.transpose(Mat))
-                                elif(dimension==3):
-                                    pt.Print3D(np.transpose(Mat))
+                                # if(dimension==2):
+                                #     pt.Print2D(np.transpose(Mat))
+                                # elif(dimension==3):
+                                #     pt.Print3D(np.transpose(Mat))
                             else:
                                 print('Input salah. Format input : reflect <param>')
 
@@ -300,10 +300,10 @@ def menu(dimension,Mat):
                                     param = S[1]
                                     k = (float(S[2]))
                                     Mat = tr.shear(dimension,Mat,param,k)
-                                    if(dimension==2):
-                                        pt.Print2D(np.transpose(Mat))
-                                    elif(dimension==3):
-                                        pt.Print3D(np.transpose(Mat))
+                                    # if(dimension==2):
+                                    #     pt.Print2D(np.transpose(Mat))
+                                    # elif(dimension==3):
+                                    #     pt.Print3D(np.transpose(Mat))
                                 else:
                                     print('Input salah. Format input : shear <param> <k>')
                             else:
@@ -316,10 +316,10 @@ def menu(dimension,Mat):
                                     param = S[1]
                                     k = (float(S[2]))
                                     Mat = tr.stretch(dimension,Mat,param,k)
-                                    if(dimension==2):
-                                        pt.Print2D(np.transpose(Mat))
-                                    elif(dimension==3):
-                                        pt.Print3D(np.transpose(Mat))
+                                    # if(dimension==2):
+                                    #     pt.Print2D(np.transpose(Mat))
+                                    # elif(dimension==3):
+                                    #     pt.Print3D(np.transpose(Mat))
                                 else:
                                     print('Input salah. Format input : stretch <param> <k>')
                             else:
@@ -335,7 +335,7 @@ def menu(dimension,Mat):
                                         c = (float(S[3]))
                                         d = (float(S[4]))
                                         Mat = tr.custom2D(dimension,Mat,a,b,c,d)
-                                        pt.Print2D(np.transpose(Mat))
+                                        # pt.Print2D(np.transpose(Mat))
                                     else:
                                         print('Input salah. Format input : custom <a> <b> <c> <d>')
                                 else:
@@ -354,11 +354,15 @@ def menu(dimension,Mat):
                                         h = (float(S[8]))
                                         i = (float(S[9]))
                                         Mat = tr.custom3D(dimension,Mat,a,b,c,d,e,f,g,h,i)
-                                        pt.Print3D(np.transpose(Mat))
+                                        # pt.Print3D(np.transpose(Mat))
                                     else:
                                         print('Input salah. Format input : custom <a> <b> <c> <d> <e> <f> <g> <h> <i>')
                                 else:
                                     print('Input salah. Format input : custom <a> <b> <c> <d> <e> <f> <g> <h> <i>')
+                    if(dimension==2):
+                        pt.Print2D(np.transpose(Mat))
+                    else: #dimension ==3
+                        pt.Print3D(np.transpose(Mat))
                 else:
                     print('Input salah. Format input : multiple <n>')
             else:

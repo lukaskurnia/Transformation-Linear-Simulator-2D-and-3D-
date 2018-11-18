@@ -13,7 +13,7 @@ from pygame.locals import*
 
 
 
-os.system('clear')
+os.system('cls')
 dimension = menu.mainmenu() #Menerima input dimensi yang diinginkan oleh user
 if (dimension != 0):
     Mat = make.shape(dimension)
