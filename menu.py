@@ -32,15 +32,15 @@ def mainmenu():
         choice = (int(temp))
         print()
         if choice == 1:
-            os.system('cls')
+            os.system('clear')
             return 2
         elif choice == 2:
-            os.system('cls')
+            os.system('clear')
             return 3
         elif choice == 3:
-            os.system('cls')
+            os.system('clear')
             exit()
             return 0
         else:
-            os.system('cls')
+            os.system('clear')
             print('Pilihan tersebut tidak ada, mohon input ulang')

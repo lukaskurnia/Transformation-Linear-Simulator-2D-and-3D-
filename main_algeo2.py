@@ -13,30 +13,10 @@ from pygame.locals import*
 
 
 
-os.system('cls')
-dimension = menu.mainmenu()
+os.system('clear')
+dimension = menu.mainmenu() #Menerima input dimensi yang diinginkan oleh user
 if (dimension != 0):
     Mat = make.shape(dimension)
-    # Mat =[
-    # 	[1, -1, -1],
-    # 	[1, 1, -1],
-    # 	[-1, 1, -1],
-    # 	[-1, -1, -1],
-    # 	[1, -1, 1],
-    # 	[1, 1, 1],
-    # 	[-1, -1, 1],
-    # 	[-1, 1, 1]
-    # 	]
-    # Mat =[
-    # 	[100, -100, -100],
-    # 	[100, 100, -100],
-    # 	[-100, 100, -100],
-    # 	[-100, -100, -100],
-    # 	[100, -100, 100],
-    # 	[100, 100, 100],
-    # 	[-100, -100, 100],
-    # 	[-100, 100, 100]
-    # 	]
 
     if(dimension==2):
         pt.displayWindow2D()

@@ -1,8 +1,3 @@
-# Nama File : transformasi.py
-# Deskripsi : fungsi dan posedure untuk operasi matriks
-# Tanggal   : 1 November 2018
-# Kelompok  : Los Santos
-
 import numpy as np
 
 # FUNGSI TRANSLASI MATRIKS
@@ -86,22 +81,12 @@ def rotate2D(dimension,Mat,sudut,a,b):
     return Mat3
 
 def rotate3D(dimension,Mat,sudut,parameter):
-# def rotate3D(dimension,Mat,sudut,a,b,c):
-# Melakukan rotasi objek secara berlawanan arah arum jam sebesar
-# sudut terhadap vektor normal a, b, dan c untuk 3 dimensi
+# def rotate3D(dimension,Mat,sudut,parameter):
+# Melakukan rotasi objek secara berlawanan arah arum jam sebesar sudut pada sumbu dengan parameter x , y , atau z
     "Ini prosedur rotation"
     #inisiasi matriks transformasi
     Mat2 = np.zeros((dimension,dimension))
     Mat3 = np.zeros((dimension,dimension))
-    # Mat2[0][0] = a*a*(1-np.cos(sudut)) + np.cos(sudut)
-    # Mat2[0][1] = a*b*(1-np.cos(sudut)) - c*(np.sin(sudut))
-    # Mat2[0][2] = a*c*(1-np.cos(sudut)) + b*(np.sin(sudut))
-    # Mat2[1][0] = a*b*(1-np.cos(sudut)) + c*(np.sin(sudut))
-    # Mat2[1][1] = b*b*(1-np.cos(sudut)) + np.cos(sudut)
-    # Mat2[1][2] = b*c*(1-np.cos(sudut)) - a*(np.sin(sudut))
-    # Mat2[2][0] = a*c*(1-np.cos(sudut)) - b*(np.sin(sudut))
-    # Mat2[2][1] = b*c*(1-np.cos(sudut)) + a*(np.sin(sudut))
-    # Mat2[2][2] = c*c*(1-np.cos(sudut)) + np.cos(sudut)
 
     if(parameter=='x'): #jika parameter adalah x
     #rotate benda 3 dimensi terhadap garis sumbu x
@@ -132,6 +117,17 @@ def rotate3D(dimension,Mat,sudut,parameter):
         Mat2[0][2] = 0
         Mat2[1][0] = np.sin(sudut)
         Mat2[1][1] = np.cos(sudut)
+        Mat2[1][2] = 0
+        Mat2[2][0] = 0
+        Mat2[2][1] = 0
+        Mat2[2][2] = 1
+    else:
+        print('Input parameter hanya bisa x , y , atau z.')
+        Mat2[0][0] = 1
+        Mat2[0][1] = 0
+        Mat2[0][2] = 0
+        Mat2[1][0] = 0
+        Mat2[1][1] = 1
         Mat2[1][2] = 0
         Mat2[2][0] = 0
         Mat2[2][1] = 0

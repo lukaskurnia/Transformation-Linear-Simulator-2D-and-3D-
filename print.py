@@ -135,60 +135,6 @@ def Maker3D(Mat):
     glEnd()
 
 
-    # glBegin(GL_QUADS)# top
-    # glColor3f(1.0, 0.0, 0.0)
-    # glNormal3f(0.0, 1.0, 0.0)
-    # glVertex3f(-1, 1, 1)
-    # glVertex3f(1, 1, 1)
-    # glVertex3f(1, 1, -1)
-    # glVertex3f(-1, 1, -1)
-    # glEnd()
-    #
-    # glBegin(GL_QUADS)
-    # glColor3f(0.0, 1.0, 0.0)
-    # glNormal3f(0.0, 0.0, 1.0)
-    # glVertex3f(1, -1, 1)
-    # glVertex3f(1, 1, 1)
-    # glVertex3f(-1, 1, 1)
-    # glVertex3f(-1, -1, 1)
-    # glEnd()
-    #
-    # glBegin(GL_QUADS)# right
-    # glColor3f(0.0, 0.0, 1.0)
-    # glNormal3f(1.0, 0.0, 0.0)
-    # glVertex3f(1, 1, -1)
-    # glVertex3f(1, 1, 1)
-    # glVertex3f(1, -1, 1)
-    # glVertex3f(1, -1, -1)
-    # glEnd()
-    #
-    # glBegin(GL_QUADS)# let
-    # glColor3f(0.0, 0.0, 1)
-    # glNormal3f(-1.0, 0.0, 0.0)
-    # glVertex3f(-1, -1, 1)
-    # glVertex3f(-1, 1, 1)
-    # glVertex3f(-1, 1, -1)
-    # glVertex3f(-1, -1, -1)
-    # glEnd()
-    #
-    # glBegin(GL_QUADS)# bottom
-    # glColor3f(1, 0.0, 0.0)
-    # glNormal3f(0.0, -1.0, 0.0)
-    # glVertex3f(1, -1, 1)
-    # glVertex3f(-1, -1, 1)
-    # glVertex3f(-1, -1, -1)
-    # glVertex3f(1, -1, -1)
-    # glEnd()
-    #
-    # glBegin(GL_QUADS)	# back
-    # glColor3f(0.0, 1, 0.0)
-    # glNormal3f(0.0, 0.0, -1.0)
-    # glVertex3f(1, 1, -1)
-    # glVertex3f(1, -1, -1)
-    # glVertex3f(-1, -1, -1)
-    # glVertex3f(-1, 1, -1)
-    # glEnd()
-
 def Print2D(Mat): #Print window menu 2 dimensi ke layar
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
     Sumbu2D()

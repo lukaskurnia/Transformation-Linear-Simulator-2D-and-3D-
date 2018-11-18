@@ -256,7 +256,7 @@ def threedimension():
 
         elif(pil==2):
 
-            print('Input titik sudut kubus : ')
+            print('Input titik sudut bangun ruang : ')
             #input titik pertama
             i = 0
             print('Input titik ke ', i+1)
